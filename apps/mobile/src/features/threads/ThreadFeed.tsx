@@ -1,4 +1,4 @@
-import { useOpenPullRequest } from "../pull-requests/useOpenPullRequest";
+import { useOpenPullRequest } from "../../native/useOpenPullRequest";
 import { ThreadContextDivider } from "./thread-context-divider";
 import { ThreadHandoffRow } from "./thread-handoff-row";
 import { SecretRequestCard } from "./SecretRequestCard";

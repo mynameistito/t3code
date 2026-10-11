@@ -4,11 +4,13 @@ import remarkGfm from "remark-gfm";
 
 type MarkdownNode = {
   readonly type: string;
-  readonly position?: {
-    readonly start: { readonly offset?: number };
-    readonly end: { readonly offset?: number };
-  };
-  readonly children?: readonly MarkdownNode[];
+  readonly position?:
+    | {
+        readonly start: { readonly offset?: number | undefined };
+        readonly end: { readonly offset?: number | undefined };
+      }
+    | undefined;
+  readonly children?: readonly MarkdownNode[] | undefined;
 };
 
 const parser = unified().use(remarkParse).use(remarkGfm);

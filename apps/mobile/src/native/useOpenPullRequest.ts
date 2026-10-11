@@ -1,15 +1,14 @@
 import { useNavigation, useRoute, StackActions } from "@react-navigation/native";
-import { nativePullRequestDestination } from "./pullRequestNavigation";
+import { nativePullRequestDestination } from "../lib/pullRequestNavigation";
 import { useCallback } from "react";
 import { EnvironmentId, ThreadId } from "@t3tools/contracts";
-import { useThreadShell } from "../../state/entities";
-import { tryOpenExternalUrl } from "../../lib/openExternalUrl";
-import type { PullRequestParams } from "./usePullRequestDiff";
+import { useThreadShell } from "../state/entities";
+import { tryOpenExternalUrl } from "../lib/openExternalUrl";
 
 /** Use the thread's environment; the shared router resolves the repository's project there. */
 export function useOpenPullRequest(options?: {
   readonly replace?: boolean;
-  readonly context?: Pick<PullRequestParams, "environmentId" | "projectId">;
+  readonly context?: { readonly environmentId: string; readonly projectId: string };
 }) {
   const navigation = useNavigation();
   const route = useRoute();

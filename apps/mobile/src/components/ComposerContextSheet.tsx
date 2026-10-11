@@ -1,4 +1,4 @@
-import { useOpenPullRequest } from "../features/pull-requests/useOpenPullRequest";
+import { useOpenPullRequest } from "../native/useOpenPullRequest";
 import { SourceFileSurface } from "../features/files/SourceFileSurface";
 import { filePreviewKind } from "@t3tools/shared/filePreview";
 import type {

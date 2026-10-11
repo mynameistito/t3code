@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test";
-import { nativePullRequestDestination } from "./pullRequestNavigation";
+import { nativePullRequestDestination } from "../../lib/pullRequestNavigation";
 const context = { environmentId: "remote", projectId: "project" };
 describe("native PR entry points", () => {
   it("keeps a thread link in its own environment and handles renamed host path shapes", () => {

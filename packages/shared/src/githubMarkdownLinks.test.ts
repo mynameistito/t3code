@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { githubMarkdownLinks } from "./githubMarkdownLinks";
+import { describe, expect, it } from "vite-plus/test";
+import { githubMarkdownLinks } from "./githubMarkdownLinks.ts";
 
 const url = "https://github.com/team/repo/pull/8";
 describe("githubMarkdownLinks", () => {
