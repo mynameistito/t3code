@@ -351,9 +351,6 @@ export function PullRequestRouteScreen({ route }: StaticScreenProps<PullRequestP
     });
     pendingFilesJump.current = false;
   }, [insets.top]);
-  useEffect(() => {
-    if (section === "overview" && pendingFilesJump.current) jumpToFiles();
-  }, [section, jumpToFiles]);
   const openFiles = () => {
     if (section === "overview") jumpToFiles();
     else {
@@ -513,7 +510,13 @@ export function PullRequestRouteScreen({ route }: StaticScreenProps<PullRequestP
                           className="mt-8 border-t border-border-subtle pt-3"
                           onLayout={(event) => {
                             filesY.current = event.nativeEvent.layout.y;
-                            if (pendingFilesJump.current) jumpToFiles();
+                            if (pendingFilesJump.current) {
+                              // The explicit file jump supersedes the tab's restored offset.
+                              pendingScrollOffset.current = null;
+                              requestAnimationFrame(() => {
+                                if (requestedSection.current === "overview") jumpToFiles();
+                              });
+                            }
                           }}
                         >
                           {filesContent.header}
