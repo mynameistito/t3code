@@ -2,12 +2,19 @@ import type { PullRequestListEntry } from "@t3tools/contracts";
 import { View } from "react-native";
 import { AppText as Text } from "../../components/AppText";
 import { PullRequestCardGroup, PullRequestCardRow } from "./PullRequestControls";
+import { PullRequestStackCard } from "./PullRequestStackCard";
+import type { PullRequestParams } from "./usePullRequestDiff";
+import type { PullRequestStackState } from "./usePullRequestStack";
 import { pullRequestListReviewStatus } from "./pullRequestList";
 
 export function PullRequestOverviewLoading({
   summary,
+  params,
+  stack,
 }: {
   readonly summary: PullRequestListEntry;
+  readonly params: PullRequestParams;
+  readonly stack: PullRequestStackState;
 }) {
   const review = pullRequestListReviewStatus(summary);
   const conflicting = summary.mergeability === "conflicting";
@@ -18,6 +25,7 @@ export function PullRequestOverviewLoading({
       accessibilityLabel="Loading pull request details"
       accessibilityState={{ busy: true }}
     >
+      <PullRequestStackCard params={params} state={stack} />
       <PullRequestCardGroup>
         <PullRequestCardRow
           compact

@@ -54,6 +54,7 @@ export function PullRequestMergeControls(props: {
     hasStack: stack.stack !== null,
     isFresh: stack.isFresh,
   });
+  const checkingStack = stack.supportsStackActions && !stack.isFresh && !stack.error;
   const reason =
     mergeUnavailableReason(pr, permissions.canWrite) ??
     (stack.stack
@@ -167,12 +168,12 @@ export function PullRequestMergeControls(props: {
           accessibilityLabel={
             scope ? `${label}, ${scope.layers.length} stack layers through #${pr.number}` : label
           }
-          accessibilityState={{ disabled: !canMerge }}
+          accessibilityState={{ disabled: !canMerge, busy: busy || checkingStack }}
           disabled={!canMerge}
           onPress={() => confirm("merge")}
           className="min-h-11 min-w-0 flex-1 flex-row items-center justify-center gap-2 px-3 py-2 active:opacity-70"
         >
-          {busy ? (
+          {busy || checkingStack ? (
             <ActivityIndicator size="small" colorClassName="accent-icon-muted" />
           ) : (
             <SymbolView
@@ -229,7 +230,10 @@ export function PullRequestMergeControls(props: {
           </ControlPillMenu>
         ) : null}
       </View>
-      {reason && reason !== MERGE_CONFLICT_REASON ? (
+      {reason &&
+      reason !== MERGE_CONFLICT_REASON &&
+      reason !== "Checking stack membership…" &&
+      !(checkingStack && reason === "Refresh the stack before merging.") ? (
         <Text className="px-1 text-xs text-foreground-muted">{reason}</Text>
       ) : null}
       {pr.autoMergeEnabled ? (

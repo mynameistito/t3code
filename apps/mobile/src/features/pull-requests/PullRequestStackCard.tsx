@@ -14,7 +14,23 @@ export function PullRequestStackCard(props: {
   const navigation = useNavigation();
   const [expanded, setExpanded] = useState(false);
   const stack = props.state.stack;
-  if (!stack) return null;
+  if (!stack) {
+    const summary =
+      props.params.initialSummary?.number === props.params.number
+        ? props.params.initialSummary.stack
+        : undefined;
+    if (!summary) return null;
+    return (
+      <PullRequestCardGroup>
+        <PullRequestCardRow
+          title="Stack"
+          icon="square.3.layers.3d"
+          value={`${summary.position} of ${summary.size}`}
+          last
+        />
+      </PullRequestCardGroup>
+    );
+  }
   const position = stack.layers.findIndex((layer) => layer.number === props.params.number) + 1;
   return (
     <PullRequestCardGroup>
@@ -22,7 +38,7 @@ export function PullRequestStackCard(props: {
         title="Stack"
         icon="square.3.layers.3d"
         value={`${position} of ${stack.layers.length}`}
-        detail={!props.state.isFresh ? "Showing saved stack · refresh to merge" : undefined}
+        accessibilityLabel={`Stack, ${position} of ${stack.layers.length}${props.state.isFresh ? "" : ", showing saved stack"}`}
         expanded={expanded}
         onPress={() => setExpanded(!expanded)}
         last={!expanded}

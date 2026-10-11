@@ -504,7 +504,11 @@ export function PullRequestRouteScreen({ route }: StaticScreenProps<PullRequestP
                             }}
                           />
                         ) : summary ? (
-                          <PullRequestOverviewLoading summary={summary} />
+                          <PullRequestOverviewLoading
+                            summary={summary}
+                            params={params}
+                            stack={stack}
+                          />
                         ) : null}
                         <View
                           className="mt-8 border-t border-border-subtle pt-3"
