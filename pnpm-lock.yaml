@@ -10859,7 +10859,7 @@ packages:
       react-native: '*'
 
   react-native-screens@file:apps/mobile/deps/react-native-screens-5.0.0-t3.24.tgz:
-    resolution: {integrity: sha512-mEUiw6DdZ7W9MCSIwOfip/e3l2a4CDtZ98UqghE8t1jC+25Al18jJ8UldJYRkMWNovkw0qLVUmQCnu5MzGzKRQ==, tarball: file:apps/mobile/deps/react-native-screens-5.0.0-t3.24.tgz}
+    resolution: {integrity: sha512-JRuqJsttmd4+tZffkQdu0OWYFmrIMayGgSakZ2F9d7gmrLJpZqNcloPR3uVkLq7qN/qcVa6ZWN8iF+rqMrRuoA==, tarball: file:apps/mobile/deps/react-native-screens-5.0.0-t3.24.tgz}
     version: 5.0.0-t3.24
     peerDependencies:
       react: '*'
