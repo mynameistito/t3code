@@ -1,3 +1,7 @@
+import {
+  PullRequestGuideScreen,
+  PullRequestGuideStopScreen,
+} from "./features/pull-requests/guide/PullRequestGuideScreen";
 import { PullRequestInlineCommentScreen } from "./features/pull-requests/PullRequestInlineCommentScreen";
 import { PullRequestDiscussionScreen } from "./features/pull-requests/PullRequestDiscussionScreen";
 import {
@@ -720,6 +724,14 @@ const RootStackConfig = createWorkspaceStackNavigator({
         path: "pull-requests/:environmentId/:projectId/:repository/:number",
         parse: { number: Number },
       },
+      options: GLASS_HEADER_OPTIONS,
+    }),
+    PullRequestGuide: createNativeStackScreen({
+      screen: PullRequestGuideScreen,
+      options: GLASS_HEADER_OPTIONS,
+    }),
+    PullRequestGuideStop: createNativeStackScreen({
+      screen: PullRequestGuideStopScreen,
       options: GLASS_HEADER_OPTIONS,
     }),
     PullRequestFile: createNativeStackScreen({

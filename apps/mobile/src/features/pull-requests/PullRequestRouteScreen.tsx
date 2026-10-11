@@ -1,3 +1,4 @@
+import { PullRequestGuideEntry } from "./guide/PullRequestGuideEntry";
 import { PullRequestEntryRow } from "./PullRequestEntryRow";
 import { LegendList, type LegendListRef } from "@legendapp/list/react-native";
 import { openOnProviderLabel } from "./pullRequestActions";
@@ -253,6 +254,7 @@ function PullRequestOverview(props: {
   const { pr } = props;
   return (
     <View className="gap-5">
+      <PullRequestGuideEntry params={props.params} />
       <PullRequestStackCard params={props.params} state={props.stack} />
       <PullRequestCardGroup>
         <PullRequestChecksRow pr={pr} params={props.params} />

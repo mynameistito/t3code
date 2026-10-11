@@ -1,3 +1,4 @@
+import { PullRequestGuideEntry } from "./guide/PullRequestGuideEntry";
 import type { PullRequestListEntry } from "@t3tools/contracts";
 import { View } from "react-native";
 import { AppText as Text } from "../../components/AppText";
@@ -25,6 +26,7 @@ export function PullRequestOverviewLoading({
       accessibilityLabel="Loading pull request details"
       accessibilityState={{ busy: true }}
     >
+      <PullRequestGuideEntry params={params} />
       <PullRequestStackCard params={params} state={stack} />
       <PullRequestCardGroup>
         <PullRequestCardRow
