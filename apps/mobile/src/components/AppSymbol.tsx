@@ -50,7 +50,7 @@ import IconDeviceDesktop from "@tabler/icons-react-native/IconDeviceDesktop";
 import IconDeviceLaptop from "@tabler/icons-react-native/IconDeviceLaptop";
 import IconDeviceMobile from "@tabler/icons-react-native/IconDeviceMobile";
 import IconDots from "@tabler/icons-react-native/IconDots";
-import IconDiff from "@tabler/icons-react-native/IconDiff";
+import IconPlusMinus from "@tabler/icons-react-native/IconPlusMinus";
 import IconDotsVertical from "@tabler/icons-react-native/IconDotsVertical";
 import IconDotsCircleHorizontal from "@tabler/icons-react-native/IconDotsCircleHorizontal";
 import IconEdit from "@tabler/icons-react-native/IconEdit";
@@ -122,7 +122,7 @@ import IconUpload from "@tabler/icons-react-native/IconUpload";
 import IconUserCircle from "@tabler/icons-react-native/IconUserCircle";
 import IconUserCheck from "@tabler/icons-react-native/IconUserCheck";
 import IconUserX from "@tabler/icons-react-native/IconUserX";
-import IconUserClock from "@tabler/icons-react-native/IconUserClock";
+import IconUserQuestion from "@tabler/icons-react-native/IconUserQuestion";
 import IconUserPlus from "@tabler/icons-react-native/IconUserPlus";
 import IconUsers from "@tabler/icons-react-native/IconUsers";
 import IconWifi from "@tabler/icons-react-native/IconWifi";
@@ -133,7 +133,7 @@ import type { AndroidSymbol, SFSymbol, SymbolViewProps } from "expo-symbols";
 import { withUniwind } from "uniwind";
 
 const ANDROID_ICON_BY_SF_SYMBOL = {
-  plusminus: IconDiff,
+  plusminus: IconPlusMinus,
   "git.pull-request.closed": IconGitPullRequestClosed,
   "git.pull-request.draft": IconGitPullRequestDraft,
   "git.commit": IconGitCommit,
@@ -225,7 +225,7 @@ const ANDROID_ICON_BY_SF_SYMBOL = {
   "person.2": IconUsers,
   "person.fill.checkmark": IconUserCheck,
   "person.fill.xmark": IconUserX,
-  "person.badge.clock": IconUserClock,
+  "person.badge.clock": IconUserQuestion,
   "person.badge.plus": IconUserPlus,
   photo: IconPhoto,
   pin: IconPin,
